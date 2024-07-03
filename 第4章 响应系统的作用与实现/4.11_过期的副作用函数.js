@@ -176,3 +176,50 @@ obj.foo++
 obj.foo++
 obj.foo++
 obj.foo++
+
+// 第二个列子
+// let count = 0
+// // 如果第一次的请求时间比较短时，会先显示 A,再显示B
+// // A 请求已经响应的时候，obj.boo++ 还未执行，就会先显示A，再显示B ，如果 A请求时间长于 setTimeout 200毫秒，那A就会直接过期（B执行的时机A过期）
+// // function fetch() {
+// //   count++
+// //   const res = count === 1 ? 'A' : 'B'
+// //   return new Promise(resolve => {
+// //     setTimeout(() => {
+// //       resolve(res)
+// //     }, count === 1 ? 100 : 1000);
+// //   })
+// // }
+
+
+// // 如果第一次请求的时间比第二次的长，则只会显示第二次的值 B
+// function fetch() {
+//   count++
+//   const res = count === 1 ? 'A' : 'B'
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve(res)
+//     }, count === 1 ? 1000 : 200);
+//   })
+// }
+
+// let finallyData
+
+// watch(() => obj.foo, async (newVal, oldVal, onInvalidate) => {
+//     debugger;
+//   let valid = true
+//   onInvalidate(() => {
+//     valid = false
+//   })
+//   const res = await fetch()
+
+//   if (!valid) return
+
+//   finallyData = res
+//   console.log(finallyData)
+// })
+
+// obj.foo++
+// setTimeout(() => {
+//   obj.foo++
+// }, 200);
