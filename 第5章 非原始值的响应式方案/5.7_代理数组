@@ -1,1 +1,15 @@
 
+// 数组是一个异质对象，它与常规对象的差异不大，大部分代理常规对象的方法对于数组来说也是生效的。 我们设置索引值时，会执行数组对象的内部方法[[set]], 它又依赖于[[DefineOwnProperty]], 数组的[[DefineOwnProperty]] 不同于常规对象。
+/* 读取：
+  1、通过索引访问数组元素：arr[0]
+  2、访问数组的长度：arr.length。
+  3、把数组作为对象，使用for...in 循环遍历
+  4、数组的原型方法： concat/join/every/some/find/findIndex/includes等，以及其他索引不改变原数组的原型方法
+
+// 设置：
+1、通过索引修改数组元素值： arr[10]=3, // 可能会扩充数组长度
+2、修改数组长度：arr.length = 0
+3、数组的栈方法：push/pop/shift/unshift
+4、修改原数组的原型方法：splice/fill/sort
+
+*/
